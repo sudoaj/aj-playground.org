@@ -1,18 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TodosComponent } from './todos/todos.component';
-import { Amplify } from 'aws-amplify';
-import outputs from '../../amplify_outputs.json';
 
-Amplify.configure(outputs);
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  imports: [RouterOutlet, TodosComponent],
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'amplify-angular-template';
+  title = 'frontend-playground';
 }
